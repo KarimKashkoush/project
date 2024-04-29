@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Security Code - Seviet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Italiana&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+        <body>
+
+            <header>
+                <div class="logo">
+                  <img class="image" src="imge/Original Logo.png" alt="Logo">
+                </div>
+            </header>
+            <img class="rectangle3-icon" alt="" src="imge/SignUpBackground.png">
+            <div class="resetpassword">Enter Security Code</div>
+            <div class="input-container3">
+                <input type="text" id="code" placeholder="Code">
+              </div>
+              <div class="texttt">Please check your email for a message with your code.<br>Your code is 6 numbers long.  
+                <div id="error-message" class="error-message"></div></div>
+                <style>
+                   .error-message {
+                    font-size: 15px; /* Decrease font size */
+                    position: relative; /* Enable positioning */
+                    top: 93px; /* Adjust vertical position */
+                }
+
+                </style>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var codeInput = document.getElementById('code');
+                        var errorMessage = document.getElementById('error-message');
+            
+                        codeInput.addEventListener('input', function() {
+                            var code = codeInput.value.trim(); // Remove leading and trailing spaces
+                            if (code.length !== 6) {
+                                errorMessage.textContent = 'Code must be exactly 6 digits long.';
+                                errorMessage.style.color = 'red'; // Change color to red for error message
+                            } else {
+                                errorMessage.textContent = ''; // Clear the error message
+                            }
+                        });
+                    });
+                </script>
+              <div class="login-button">
+                <button id="login-btn"><a href="changepassword.html">Submit</a></button>
+              </div>
+              <div class="cancel-link">
+                <a id="cancel-btn" href="login.html">Cancel</a>
+              </div>
+        </body>
+</html>

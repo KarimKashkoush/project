@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seviet</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya&family=Italiana&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>
+        <body>
+
+
+            <header>
+                <div class="logo">
+                  <img class="image" src="imge/Original Logo.png"  href=""s alt="Logo">
+                </div>
+                <div class="cart">
+                    <a href="file:///C:/Users/shahe/OneDrive/Desktop/project/Cart.html"></a><img class="image" src="imge/Cart.png" alt="cart"></a>
+                  </div>
+                <div class="Profile">
+                    <img class="image" src="imge/Profile.png" alt="Profile">
+                  </div>
+                  <div class="Wishlist">
+                    <img class="image" src="imge/Heart 1.png"alt="Wishlist">
+                  </div>
+                
+                  <div class="search">
+                    <img class="image" src="imge/search.png"alt="search">
+                    
+                      <form>
+                        <div class="searchbar">
+                        <input class="searchinput" type="search" placeholder="search for products...">
+                     </div>
+                    </form>   
+                    
+            </header>
+
+    <div class="navbar-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="Aboutus.html">About us</a></li>
+                <li><a href="contactus.html">Contact us</a></li>
+            </ul>
+        </nav>
+     </div>
+    
+        <div class="lipbalm">
+        <img class="image" src="imge/lipbalm.png" alt=lipbalm>
+          </div>      
+          <div class="picts">
+            <div class="pict1">  
+                    <img src="imge/lipbalm0.png"/>
+                    <img src="imge/lipbalm1.png"/>
+                    <img src="imge/lipbalm2.png"/>  
+            </div>
+            
+        </div>
+        <div class="lipbalmdetails">
+            <h1>Lip Balm Mango Flavor 5ml</h1>
+            <h3>    Moisturizing balm that help restore dry lip, it is formulated</h3>
+        <h3>  with Mango oil and Jojoba oil to help in lack of moisture,</h3>
+            <h3>leaving your lip feeling smooth, soft and supple</h3>
+            <h2>65 L.E</h2>
+          </div>
+        
+         
+                  <div class="addtocart">
+                      <!-- Add to Cart Icon with Image -->
+                      <form action="{% url 'add_to_cart' product.id %}" method="post">
+                          <div class="quantity">
+                              <button type="button" class="minus">-</button>
+                              <input type="number" name="quantity" id="quantityInput" value="1" min="1" max="{{ product.quantity }}">
+                              <button type="button" class="plus">+</button>
+                          </div>
+                          <button type="submit">
+                              <!-- Image inside the button -->
+                              <img src="imge/Cart.png" alt="Add to Cart">
+                              Add to Cart
+                          </button>
+                      </form>
+                  </div>
+              
+                  <!-- JavaScript -->
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                          const minusButton = document.querySelector('.minus');
+                          const plusButton = document.querySelector('.plus');
+                          const quantityInput = document.getElementById('quantityInput');
+              
+                          minusButton.addEventListener('click', function () {
+                              let currentValue = parseInt(quantityInput.value);
+                              if (currentValue > 1) {
+                                  quantityInput.value = currentValue - 1;
+                              }
+                          });
+              
+                          plusButton.addEventListener('click', function () {
+                              let currentValue = parseInt(quantityInput.value);
+                              let maxValue = parseInt(quantityInput.getAttribute('max'));
+                              if (currentValue < maxValue) {
+                                  quantityInput.value = currentValue + 1;
+                              }
+                          });
+                      });
+                  </script>
+              
+          
+</body>
+</html>
